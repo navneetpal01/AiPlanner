@@ -41,6 +41,7 @@ private val LightColorScheme = lightColorScheme(
 fun AiPlannerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
+    windowSizeClass: WindowSizeClass,
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
@@ -62,9 +63,40 @@ fun AiPlannerTheme(
         }
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    val orientation = when{
+        windowSizeClass.width.size > windowSizeClass.height.size -> Orientation.Landscape
+        else -> Orientation.Portrait
+    }
+
+    val sizeThatMaters = when(orientation){
+        Orientation.Landscape -> windowSizeClass.width
+        else -> windowSizeClass.height
+    }
+
+    val aiPlannerDimens = when(sizeThatMaters){
+        is WindowSize.Small -> smallAiPlannerDimens
+        is WindowSize.Compact -> compactAiPlannerDimens
+        is WindowSize.Medium -> mediumAiPlannerDimens
+        else -> largeAiPlannerDimens
+    }
+
+    ProvideAppUtils(aiPlannerDimens = aiPlannerDimens, orientation = orientation) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content
+        )
+    }
+
+}
+
+object AppTheme {
+    val aiPlannerDimens : AiPlannerDimens
+        @Composable
+        get() = LocalAiPlannerDimens.current
+
+    val orientation : Orientation
+         @Composable
+         get() = LocalOrientationMode.current
+
 }
