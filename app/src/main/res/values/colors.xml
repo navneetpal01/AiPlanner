@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    //System Colors 
+    <color name="system_color_white">#FFFFFF</color>
+    
+    
+    //Element Colors 
+
+    //Button Colors
+    
+    
 </resources>

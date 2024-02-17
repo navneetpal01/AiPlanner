@@ -1,9 +1,9 @@
 package com.example.aiplanner.presentation.onboarding
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import com.example.aiplanner.presentation.onboarding.components.OnBoardingPage
 
 @Composable
 fun OnBoardingScreen(){
-    Text(text = "I am a Nerd")
+    OnBoardingPage()
 }
