@@ -3,7 +3,9 @@ package com.example.aiplanner
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -15,6 +17,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import com.example.aiplanner.presentation.nvgraph.NavGraph
+import com.example.aiplanner.presentation.nvgraph.Route
 import com.example.aiplanner.ui.theme.AiPlannerTheme
 import com.example.aiplanner.ui.theme.rememberWindowSizeClass
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -35,8 +39,13 @@ class MainActivity : ComponentActivity() {
                         darkIcons = !isSystemInDarkMode
                     )
                 }
-
-
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(color = MaterialTheme.colorScheme.onSurface),
+                ){
+                    NavGraph(startDestination = Route.OnBoardingScreen.route)
+                }
             }
         }
     }
