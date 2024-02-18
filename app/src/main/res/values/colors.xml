@@ -10,9 +10,12 @@
     
     //System Colors 
     <color name="system_color_white">#FFFFFF</color>
-    
-    
-    //Element Colors 
+    <color name="system_color_black">#000000</color>
+    <color name="system_color_blue">#3085fe</color>
+    //Element Colors
+    <color name="element_indicator_color">#e7e7e8</color>
+    <color name="element_text_color">#101317</color>
+
 
     //Button Colors
     
