@@ -8,8 +8,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
 
-val ridley_grotesk_bold = FontFamily(Font(R.font.ridley_grotesk_bold))
 val ridley_grotesk_semibold = FontFamily(Font(R.font.ridley_grotesk_semibold))
+val ridley_grotesk_light = FontFamily(Font(R.font.ridley_grotesk_light))
 
 
 data class AiPlannerDimens(

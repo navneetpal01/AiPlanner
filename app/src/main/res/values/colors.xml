@@ -14,7 +14,9 @@
     <color name="system_color_blue">#3085fe</color>
     //Element Colors
     <color name="element_indicator_color">#e7e7e8</color>
-    <color name="element_text_color">#101317</color>
+    <color name="element_onboarding_text_first_color">#101317</color>
+    <color name="element_onboarding_text_second_color">#acafb5</color>
+    <color name="element_onboarding_button">#3085fe</color>
 
 
     //Button Colors
