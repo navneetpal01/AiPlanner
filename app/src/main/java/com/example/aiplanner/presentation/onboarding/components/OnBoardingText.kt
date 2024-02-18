@@ -11,20 +11,23 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
 import com.example.aiplanner.ui.theme.ridley_grotesk_bold
+import com.example.aiplanner.ui.theme.ridley_grotesk_semibold
 
 @Composable
 fun OnBoardingText(){
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 15.dp)
+            .padding(horizontal = 20.dp, vertical = 20.dp)
     ){
         Text(
             text = "Manage your Task\n& Projects Easily",
             color = colorResource(id = R.color.element_text_color),
-            fontFamily = ridley_grotesk_bold,
+            fontFamily = ridley_grotesk_semibold,
             fontSize = 30.sp
         )
+
+
     }
 
 }
