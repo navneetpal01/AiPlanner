@@ -18,6 +18,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
+import com.example.aiplanner.ui.theme.ridley_grotesk_medium
 
 @Composable
 fun OnBoardingButton(
@@ -42,6 +43,7 @@ fun OnBoardingButton(
             Text(
                 text = buttonText,
                 fontSize = 20.sp,
+                fontFamily = ridley_grotesk_medium,
                 color = colorResource(id = R.color.system_color_white)
             )
             Icon(

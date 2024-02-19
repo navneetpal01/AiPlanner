@@ -27,21 +27,21 @@ fun OnBoardingPhoneFrame(
         ) {
             val frameHeight = size.height
             val frameWidth = size.width
+            val frameStartHorizontalSpace = 125f
+            val frameEndHorizontalSpace = frameWidth - frameStartHorizontalSpace
             drawLine(
                 color = Color.Black,
-                start = Offset(150f, 250f),
-                end = Offset(150f, frameHeight),
+                start = Offset(frameStartHorizontalSpace, 250f),
+                end = Offset(frameStartHorizontalSpace, frameHeight),
                 strokeWidth = 30f,
                 alpha = 1f,
-
             )
             drawLine(
                 color = Color.Black,
-                start = Offset(1000f, 250f),
-                end = Offset(1000f, frameHeight),
+                start = Offset(frameEndHorizontalSpace, 250f),
+                end = Offset(frameEndHorizontalSpace, frameHeight),
                 strokeWidth = 30f,
                 alpha = 1f,
-
                 )
         }
     }

@@ -10,6 +10,7 @@ import com.example.aiplanner.R
 
 val ridley_grotesk_semibold = FontFamily(Font(R.font.ridley_grotesk_semibold))
 val ridley_grotesk_light = FontFamily(Font(R.font.ridley_grotesk_light))
+val ridley_grotesk_medium = FontFamily(Font(R.font.ridley_grotesk_medium))
 
 
 data class AiPlannerDimens(
