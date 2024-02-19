@@ -44,6 +44,7 @@ class MainActivity : ComponentActivity() {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
+                        .statusBarsPadding()
                         .navigationBarsPadding()
                         .background(color = MaterialTheme.colorScheme.onSurface),
                 ){

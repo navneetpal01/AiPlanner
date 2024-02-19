@@ -3,7 +3,6 @@ package com.example.aiplanner.presentation.onboarding.components
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,10 +20,10 @@ fun OnBoardingText(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 20.dp, vertical = 20.dp)
     ) {
         Text(
-            modifier = Modifier.padding(),
+            modifier = Modifier
+                .padding(bottom = 10.dp),
             text = "Manage your Task\n& Projects Easily",
             fontSize = 30.sp,
             fontFamily = ridley_grotesk_semibold,
@@ -32,7 +31,9 @@ fun OnBoardingText(
             color = colorResource(id = R.color.element_onboarding_text_first_color),
         )
         Text(
-            text = "It is a long established fact that a reader will be distracted by the readable content",
+            modifier = Modifier
+                .padding(bottom = 10.dp),
+            text = "It is a long established fact that a reader will be distracted by the\nreadable content",
             fontSize = 15.sp,
             fontFamily = ridley_grotesk_light,
             color = colorResource(id = R.color.element_onboarding_text_second_color)

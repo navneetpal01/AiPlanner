@@ -22,8 +22,8 @@ fun PageIndicator(
     selectedPage : Int,
     selectedColor : Color = colorResource(id = R.color.system_color_blue),
     unselectedColor : Color = colorResource(id = R.color.element_indicator_color),
-    selectedIndicatorWidth : Dp = 50.dp,
-    unselectedIndicatorWidth : Dp = 15.dp
+    selectedIndicatorWidth : Dp = 60.dp,
+    unselectedIndicatorWidth : Dp = 18.dp
     ){
     Row(
         modifier = modifier,
