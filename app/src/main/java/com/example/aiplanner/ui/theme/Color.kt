@@ -9,12 +9,13 @@ val Pink80 = Color(0xFFEFB8C8)
 
 
 //System Colors
-val System_Black = Color(0x000000)
-val System_White = Color(0xFFFFFF)
+val System_Black = Color(0xFF000000)
+val System_White = Color(0xFFFFFFFF)
 
 
 //Element Colors
-
+val Element_OutsideFrame = Color(0xFFaaaaa8)
+val Element_MoreOutsideFrame = Color(0xFF7c7c79)
 
 //Button Colors
 

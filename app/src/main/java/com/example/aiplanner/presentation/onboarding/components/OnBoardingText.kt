@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
@@ -36,6 +37,7 @@ fun OnBoardingText(
             text = "It is a long established fact that a reader will be distracted by the\nreadable content",
             fontSize = 15.sp,
             fontFamily = ridley_grotesk_light,
+            fontWeight = FontWeight.Bold,
             color = colorResource(id = R.color.element_onboarding_text_second_color)
         )
     }

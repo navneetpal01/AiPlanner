@@ -9,7 +9,10 @@ import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
 
 val ridley_grotesk_semibold = FontFamily(Font(R.font.ridley_grotesk_semibold))
+//Bottom Text
 val ridley_grotesk_light = FontFamily(Font(R.font.ridley_grotesk_light))
+//Regular
+val ridley_grotesk_regular = FontFamily(Font(R.font.ridley_grotesk_regular))
 val ridley_grotesk_medium = FontFamily(Font(R.font.ridley_grotesk_medium))
 
 
