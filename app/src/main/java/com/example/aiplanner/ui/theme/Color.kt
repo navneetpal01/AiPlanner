@@ -14,8 +14,8 @@ val System_White = Color(0xFFFFFFFF)
 
 
 //Element Colors
-val Element_OutsideFrame = Color(0xFFaaaaa8)
-val Element_MoreOutsideFrame = Color(0xFF7c7c79)
+val Second_Frame = Color(0xFFaaaaa8)
+val First_Frame = Color(0xFF7c7c79)
 
 //Button Colors
 
