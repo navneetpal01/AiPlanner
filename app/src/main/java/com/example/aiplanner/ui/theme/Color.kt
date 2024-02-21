@@ -16,6 +16,10 @@ val System_White = Color(0xFFFFFFFF)
 //Element Colors
 val Second_Frame = Color(0xFFaaaaa8)
 val First_Frame = Color(0xFF7c7c79)
+val Camera_First_Frame = Color(0xFF101331)
+val Camera_Second_Frame = Color(0xFF1d1e41)
+val Camera_Third_Frame = Color(0xFF063653)
+
 
 //Button Colors
 

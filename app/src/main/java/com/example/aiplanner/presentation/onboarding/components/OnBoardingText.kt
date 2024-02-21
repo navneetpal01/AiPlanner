@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
@@ -16,7 +17,8 @@ import com.example.aiplanner.ui.theme.ridley_grotesk_semibold
 
 @Composable
 fun OnBoardingText(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    page : Page
 ) {
     Column(
         modifier = modifier
@@ -25,17 +27,19 @@ fun OnBoardingText(
         Text(
             modifier = Modifier
                 .padding(bottom = 10.dp),
-            text = "Manage your Task\n& Projects Easily",
-            fontSize = 30.sp,
+            text = page.content,
+            fontSize = 28.sp,
             fontFamily = ridley_grotesk_semibold,
             lineHeight = 35.sp,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
             color = colorResource(id = R.color.element_onboarding_text_first_color),
         )
         Text(
             modifier = Modifier
-                .padding(bottom = 10.dp),
-            text = "It is a long established fact that a reader will be distracted by the\nreadable content",
-            fontSize = 15.sp,
+                .padding(bottom = 10.dp, end = 60.dp),
+            text = page.description,
+            fontSize = 13.sp,
             fontFamily = ridley_grotesk_light,
             fontWeight = FontWeight.Bold,
             color = colorResource(id = R.color.element_onboarding_text_second_color)

@@ -36,7 +36,7 @@ fun OnBoardingButton(
     ){
         Row(
             modifier = Modifier
-                .padding(horizontal = 15.dp, vertical = 15.dp),
+                .padding(horizontal = 18.dp, vertical = 13.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ){
