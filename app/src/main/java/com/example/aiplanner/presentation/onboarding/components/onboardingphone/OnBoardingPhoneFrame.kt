@@ -1,5 +1,6 @@
 package com.example.aiplanner.presentation.onboarding.components.onboardingphone
 
+import android.util.Log
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -36,98 +37,102 @@ fun OnBoardingPhoneFrame(
             //ThirdFrame
             val frameHeight = size.height
             val frameWidth = size.width
-            val thirdLeftFrame = 150f
+            Log.d("frameHeight","The frame Height is $frameHeight")
+            Log.d("frameWidth","The frame Width is $frameWidth")
+            //Third frame
+            val thirdLeftFrame = frameWidth * 0.1389f
+            Log.d("thirdLeftFrame","The frame Width is $thirdLeftFrame")
             val thirdRightFrame = frameWidth - thirdLeftFrame
             val thirdPath = Path()
             thirdPath.moveTo(x = thirdLeftFrame, y = frameHeight)
-            thirdPath.lineTo(x = thirdLeftFrame, y = 250f)
+            thirdPath.lineTo(x = thirdLeftFrame, y = frameHeight * 0.185f)
             thirdPath.cubicTo(
-                x1 = thirdLeftFrame, y1 = 160f,
-                x2 = thirdLeftFrame + 50f, y2 = 100f,
-                x3 = thirdLeftFrame + 150, y3 = 100f
+                x1 = thirdLeftFrame, y1 = frameHeight*0.118f,
+                x2 = thirdLeftFrame + frameWidth * 0.046f, y2 = frameHeight*0.074f,
+                x3 = thirdLeftFrame + frameWidth*0.139f, y3 = frameHeight*0.074f
             )
-            thirdPath.lineTo(x = thirdRightFrame - 150f, y = 100f)
+            thirdPath.lineTo(x = thirdRightFrame - frameWidth*0.139f, y = frameHeight*0.074f)
             thirdPath.moveTo(x = thirdRightFrame, y = frameHeight)
-            thirdPath.lineTo(x = thirdRightFrame, y = 250f)
+            thirdPath.lineTo(x = thirdRightFrame, y = frameHeight*0.185f)
             thirdPath.cubicTo(
-                x1 = thirdRightFrame, y1 = 160f,
-                x2 = thirdRightFrame - 50f, y2 = 100f,
-                x3 = thirdRightFrame - 150f, y3 = 100f
+                x1 = thirdRightFrame, y1 = frameHeight*0.118f,
+                x2 = thirdRightFrame - frameWidth*0.046f, y2 = frameHeight*0.074f,
+                x3 = thirdRightFrame - frameWidth*0.139f, y3 = frameHeight*0.074f
             )
-            drawPath(path = thirdPath, color = System_Black, style = Stroke(width = 35f))
+            drawPath(path = thirdPath, color = System_Black, style = Stroke(width = frameWidth*0.032f)) //35f
             //SecondFrame -15
-            val secondLeftFrame = 135f
+            val secondLeftFrame = frameWidth*0.125f
             val secondRightFrame = frameWidth - secondLeftFrame
             val secondPath = Path()
             secondPath.moveTo(x = secondLeftFrame, y = frameHeight)
-            secondPath.lineTo(x = secondLeftFrame, y = 250f)
+            secondPath.lineTo(x = secondLeftFrame, y = frameHeight*0.185f)
             secondPath.cubicTo(
-                x1 = secondLeftFrame, y1 = 145f,
-                x2 = secondLeftFrame + 50f, y2 = 85f,
-                x3 = secondLeftFrame + 150, y3 = 85f
+                x1 = secondLeftFrame, y1 = frameHeight*0.107f,
+                x2 = secondLeftFrame + frameWidth*0.046f, y2 = frameHeight*0.063f,
+                x3 = secondLeftFrame + frameWidth*0.139f, y3 = frameHeight*0.063f
             )
-            secondPath.lineTo(x = secondRightFrame - 150f, y = 85f)
+            secondPath.lineTo(x = secondRightFrame - frameWidth*0.139f, y = frameHeight*0.063f)
             secondPath.moveTo(x = secondRightFrame, y = frameHeight)
-            secondPath.lineTo(x = secondRightFrame, y = 250f)
+            secondPath.lineTo(x = secondRightFrame, y = frameHeight*0.185f)
             secondPath.cubicTo(
-                x1 = secondRightFrame, y1 = 145f,
-                x2 = secondRightFrame - 50f, y2 = 85f,
-                x3 = secondRightFrame - 150f, y3 = 85f
+                x1 = secondRightFrame, y1 = frameHeight*0.107f,
+                x2 = secondRightFrame - frameWidth*0.046f, y2 = frameHeight*0.063f,
+                x3 = secondRightFrame - frameWidth*0.139f, y3 = frameHeight*0.063f
             )
-            drawPath(path = secondPath, color = Second_Frame, style = Stroke(width = 5f))
+            drawPath(path = secondPath, color = Second_Frame, style = Stroke(width = frameWidth*0.005f))
             //FirstFrame - 9
-            val firstLeftFrame = 126f
+            val firstLeftFrame = frameWidth*0.117f
             val firstRightFrame = frameWidth - firstLeftFrame
             val firstPath = Path()
             firstPath.moveTo(x = firstLeftFrame, y = frameHeight)
-            firstPath.lineTo(x = firstLeftFrame, y = 250f)
+            firstPath.lineTo(x = firstLeftFrame, y = frameHeight*0.185f)
             firstPath.cubicTo(
-                x1 = firstLeftFrame, y1 = 136f,
-                x2 = firstLeftFrame + 50f, y2 = 76f,
-                x3 = firstLeftFrame + 150, y3 = 76f
+                x1 = firstLeftFrame, y1 = frameHeight*0.10059f,
+                x2 = firstLeftFrame + frameWidth*0.046f, y2 = frameHeight*0.056f,
+                x3 = firstLeftFrame + frameWidth*0.139f, y3 = frameHeight*0.056f
             )
-            firstPath.lineTo(x = firstRightFrame - 150f, y = 76f)
+            firstPath.lineTo(x = firstRightFrame - frameWidth*0.139f, y = frameHeight*0.056f)
             firstPath.moveTo(x = firstRightFrame, y = frameHeight)
-            firstPath.lineTo(x = firstRightFrame, y = 250f)
+            firstPath.lineTo(x = firstRightFrame, y = frameHeight*0.185f)
             firstPath.cubicTo(
-                x1 = firstRightFrame, y1 = 136f,
-                x2 = firstRightFrame - 50f, y2 = 76f,
-                x3 = firstRightFrame - 150f, y3 = 76f
+                x1 = firstRightFrame, y1 = frameHeight*0.10059f,
+                x2 = firstRightFrame - frameWidth*0.046f, y2 = frameHeight*0.056f,
+                x3 = firstRightFrame - frameWidth*0.139f, y3 = frameHeight*0.056f
             )
             //Buttons
             firstPath.moveTo(
                 x = firstRightFrame,
-                y = 400f
+                y = frameHeight*0.296f
             )
             firstPath.addRoundRect(
                 roundRect = RoundRect(
-                    left = 120f,
-                    top = 400f,
-                    right = 126f,
-                    bottom = 530f,
+                    left = frameWidth*0.111f,
+                    top = frameHeight*0.296f,
+                    right = frameWidth*0.117f,
+                    bottom = frameHeight*0.392f,
                     cornerRadius = CornerRadius(
-                        x = 6f,
-                        y = 6f,
+                        x = frameWidth*0.005f,
+                        y = frameHeight*0.004f,
                     )
                 )
             )
             firstPath.moveTo(
                 x = firstRightFrame,
-                y = 600f
+                y = frameHeight*0.444f
             )
             firstPath.addRoundRect(
                 roundRect = RoundRect(
                     left = firstRightFrame,
-                    top = 500f,
-                    right = firstRightFrame + 6,
-                    bottom = 730f,
+                    top = frameHeight*0.37f,
+                    right = firstRightFrame + frameWidth*0.005f,
+                    bottom = frameHeight*0.54f,
                     cornerRadius = CornerRadius(
-                        x = 6f,
-                        y = 6f,
+                        x = frameWidth*0.005f,
+                        y = frameHeight*0.004f,
                     )
                 )
             )
-            drawPath(path = firstPath, color = First_Frame, style = Stroke(width = 5f))
+            drawPath(path = firstPath, color = First_Frame, style = Stroke(width = frameWidth*0.005f))
             //Notch
             val notchWidth = 250f
             val notchAtX = (frameWidth / 2) - (notchWidth / 2)
