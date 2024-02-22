@@ -18,6 +18,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.example.aiplanner.R
 import com.example.aiplanner.presentation.onboarding.components.OnBoardingButton
+import com.example.aiplanner.presentation.onboarding.components.OnBoardingEvent
 import com.example.aiplanner.presentation.onboarding.components.OnBoardingText
 import com.example.aiplanner.presentation.onboarding.components.PageIndicator
 import com.example.aiplanner.presentation.onboarding.components.onboardingphone.OnBoardingPhoneFrame
@@ -26,7 +27,9 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    event: (OnBoardingEvent) -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxHeight()
@@ -46,7 +49,7 @@ fun OnBoardingScreen() {
                 }
             }
         }
-        val coroutineScope = rememberCoroutineScope()
+        val scope = rememberCoroutineScope()
         Box(
             modifier = Modifier
                 .fillMaxHeight(0.4f)
@@ -56,7 +59,7 @@ fun OnBoardingScreen() {
             PageIndicator(
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .padding(top = 40.dp, start = 20.dp),
+                    .padding(top = 60.dp, start = 20.dp),
                 pageSize = 3,
                 selectedPage = pagerState.currentPage
             )
@@ -72,8 +75,12 @@ fun OnBoardingScreen() {
                     .align(Alignment.BottomStart),
                 buttonText = buttonState.value
             ) {
-                coroutineScope.launch {
-                    pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
+                scope.launch {
+                    if (pagerState.currentPage == 2) {
+                        event(OnBoardingEvent.SavedAppEntry)
+                    } else {
+                        pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
+                    }
                 }
             }
         }

@@ -3,6 +3,7 @@ package com.example.aiplanner
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
@@ -20,11 +21,18 @@ import com.example.aiplanner.presentation.nvgraph.Route
 import com.example.aiplanner.ui.theme.AiPlannerTheme
 import com.example.aiplanner.ui.theme.rememberWindowSizeClass
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
+        installSplashScreen().apply {
+            setKeepOnScreenCondition(){
+                viewModel.splashCondition
+            }
+        }
         WindowCompat.setDecorFitsSystemWindows(window,false)
         setContent {
             val windowSize = rememberWindowSizeClass()
@@ -40,11 +48,11 @@ class MainActivity : ComponentActivity() {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .statusBarsPadding()
                         .navigationBarsPadding()
                         .background(color = MaterialTheme.colorScheme.onSurface),
                 ){
-                    NavGraph(startDestination = Route.OnBoardingScreen.route)
+                    val startDestination = viewModel.startDestination
+                    NavGraph(startDestination = startDestination)
                 }
             }
         }
