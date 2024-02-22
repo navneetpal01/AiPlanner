@@ -37,11 +37,8 @@ fun OnBoardingPhoneFrame(
             //ThirdFrame
             val frameHeight = size.height
             val frameWidth = size.width
-            Log.d("frameHeight","The frame Height is $frameHeight")
-            Log.d("frameWidth","The frame Width is $frameWidth")
             //Third frame
             val thirdLeftFrame = frameWidth * 0.1389f
-            Log.d("thirdLeftFrame","The frame Width is $thirdLeftFrame")
             val thirdRightFrame = frameWidth - thirdLeftFrame
             val thirdPath = Path()
             thirdPath.moveTo(x = thirdLeftFrame, y = frameHeight)
@@ -134,43 +131,43 @@ fun OnBoardingPhoneFrame(
             )
             drawPath(path = firstPath, color = First_Frame, style = Stroke(width = frameWidth*0.005f))
             //Notch
-            val notchWidth = 250f
+            val notchWidth = frameWidth*0.231f
             val notchAtX = (frameWidth / 2) - (notchWidth / 2)
             drawRoundRect(
                 color = System_Black,
                 topLeft = Offset(
                     x = notchAtX,
-                    y = 140f
+                    y = frameHeight*0.1035f
                 ),
                 size = Size(
                     width = notchWidth,
-                    height = 70f
+                    height = frameHeight*0.052f
                 ),
-                cornerRadius = CornerRadius(x = 70f, y = 70f)
+                cornerRadius = CornerRadius(x = frameWidth*0.065f, y = frameHeight*0.052f)
             )
             //Camera
             drawCircle(
                 color = Camera_First_Frame,
-                radius = 18f,
+                radius = frameWidth*0.017f,
                 center = Offset(
-                    x = 615f,
-                    y = 175f
+                    x = frameWidth*0.569f,
+                    y = frameHeight*0.129f
                 )
             )
             drawCircle(
                 color = Camera_Second_Frame,
-                radius = 8f,
+                radius = frameWidth*0.007f,
                 center = Offset(
-                    x = 615f,
-                    y = 175f
+                    x = frameWidth*0.569f,
+                    y = frameHeight*0.129f
                 )
             )
             drawCircle(
                 color = Camera_Third_Frame,
-                radius = 3f,
+                radius = frameWidth*0.003f,
                 center = Offset(
-                    x = 615f,
-                    y = 175f
+                    x = frameWidth*0.569f,
+                    y = frameHeight*0.129f
                 )
             )
         }
