@@ -65,12 +65,10 @@ fun AiPlannerNavigator() {
                                 navController = navController,
                                 route = Route.HomeScreen.route
                             )
-
                             1 -> navigateToTab(
                                 navController = navController,
                                 route = Route.ThemeScreen.route
                             )
-
                             2 -> navigateToTab(
                                 navController = navController,
                                 route = Route.SettingScreen.route
