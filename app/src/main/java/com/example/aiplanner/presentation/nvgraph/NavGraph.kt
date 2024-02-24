@@ -6,7 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
-import com.example.aiplanner.presentation.homeScreen.HomeScreen
+import com.example.aiplanner.presentation.homescreen.HomeScreen
+import com.example.aiplanner.presentation.homescreen.news_navigator.AiPlannerNavigator
 import com.example.aiplanner.presentation.onboarding.OnBoardingScreen
 import com.example.aiplanner.presentation.onboarding.OnBoardingViewModel
 
@@ -29,10 +30,10 @@ fun NavGraph(
         }
         navigation(
             route = Route.AiPlannerNavigation.route,
-            startDestination = Route.HomeScreen.route
+            startDestination = Route.AiPlannerNavigator.route
         ){
-            composable(route = Route.HomeScreen.route){
-                HomeScreen()
+            composable(route = Route.AiPlannerNavigator.route){
+                AiPlannerNavigator()
             }
         }
     }
