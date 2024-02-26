@@ -8,6 +8,7 @@ sealed class Route(
     object OnBoardingScreen : Route(route = "OnBoardingScreen")
     object AiPlannerNavigator : Route(route = "AiPlannerNavigatorScreen")
     object HomeScreen : Route(route = "HomeScreen")
-    object ThemeScreen : Route(route = "SearchScreen")
+    object ThemesScreen : Route(route = "SearchScreen")
+    object CalendarScreen : Route(route = "CalendarScreen")
     object SettingScreen : Route(route = "SettingScreen")
 }

@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.aiplanner.R
+import com.example.aiplanner.presentation.calendar.CalendarScreen
 import com.example.aiplanner.presentation.homescreen.HomeScreen
 import com.example.aiplanner.presentation.homescreen.news_navigator.components.AiPlannerBottomNavigation
 import com.example.aiplanner.presentation.homescreen.news_navigator.components.BottomNavigationItem
@@ -27,9 +28,10 @@ import com.example.aiplanner.presentation.themescreen.ThemeScreen
 fun AiPlannerNavigator() {
     val bottomNavigationItems = remember {
         listOf(
-            BottomNavigationItem(icon = R.drawable.ic_home, text = "Home"),
-            BottomNavigationItem(icon = R.drawable.ic_search, text = "Search"),
-            BottomNavigationItem(icon = R.drawable.ic_bookmark, text = "Bookmark")
+            BottomNavigationItem(icon = R.drawable.home, text = "Home"),
+            BottomNavigationItem(icon = R.drawable.themes, text = "Themes"),
+            BottomNavigationItem(icon = R.drawable.calander, text = "Calendar"),
+            BottomNavigationItem(icon = R.drawable.settings, text = "Setting")
         )
     }
     val navController = rememberNavController()
@@ -38,45 +40,55 @@ fun AiPlannerNavigator() {
         mutableStateOf(0)
     }
 
-    selectedItem = remember(key1 = backstackState){
+    selectedItem = remember(key1 = backstackState) {
         when (backstackState?.destination?.route) {
             Route.HomeScreen.route -> 0
-            Route.ThemeScreen.route -> 1
-            Route.SettingScreen.route -> 2
+            Route.ThemesScreen.route -> 1
+            Route.CalendarScreen.route -> 2
+            Route.SettingScreen.route -> 3
             else -> 0
         }
     }
+    /*
     val isBottomBarVisible = remember(key1 = backstackState) {
         backstackState?.destination?.route == Route.HomeScreen.route ||
-                backstackState?.destination?.route == Route.ThemeScreen.route ||
+                backstackState?.destination?.route == Route.ThemesScreen.route ||
+                backstackState?.destination?.route== Route.CalendarScreen.route ||
                 backstackState?.destination?.route == Route.SettingScreen.route
     }
+     */
     Scaffold(
         modifier = Modifier
             .fillMaxSize(),
         bottomBar = {
-            if (isBottomBarVisible) {
-                AiPlannerBottomNavigation(
-                    items = bottomNavigationItems,
-                    selected = selectedItem,
-                    onItemClick = { index ->
-                        when (index) {
-                            0 -> navigateToTab(
-                                navController = navController,
-                                route = Route.HomeScreen.route
-                            )
-                            1 -> navigateToTab(
-                                navController = navController,
-                                route = Route.ThemeScreen.route
-                            )
-                            2 -> navigateToTab(
-                                navController = navController,
-                                route = Route.SettingScreen.route
-                            )
-                        }
+            AiPlannerBottomNavigation(
+                items = bottomNavigationItems,
+                selected = selectedItem,
+                onItemClick = { index ->
+                    when (index) {
+                        0 -> navigateToTab(
+                            navController = navController,
+                            route = Route.HomeScreen.route
+                        )
+
+                        1 -> navigateToTab(
+                            navController = navController,
+                            route = Route.ThemesScreen.route
+                        )
+
+                        2 -> navigateToTab(
+                            navController = navController,
+                            route = Route.CalendarScreen.route
+                        )
+
+                        3 -> navigateToTab(
+                            navController = navController,
+                            route = Route.SettingScreen.route
+                        )
                     }
-                )
-            }
+                }
+            )
+
         }
     ) {
         val bottomPadding = it.calculateBottomPadding()
@@ -88,8 +100,11 @@ fun AiPlannerNavigator() {
             composable(route = Route.HomeScreen.route) {
                 HomeScreen()
             }
-            composable(route = Route.ThemeScreen.route) {
+            composable(route = Route.ThemesScreen.route) {
                 ThemeScreen()
+            }
+            composable(route = Route.CalendarScreen.route) {
+                CalendarScreen()
             }
             composable(route = Route.SettingScreen.route) {
                 SettingScreen()

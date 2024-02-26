@@ -24,12 +24,12 @@ class MainViewModel @Inject constructor(
         private set
     init {
         appEntryUseCases.readAppEntry().onEach {shouldStartFromHomeScreen ->
-            if (shouldStartFromHomeScreen){
+            if(shouldStartFromHomeScreen){
                 startDestination = Route.AiPlannerNavigation.route
             }else{
                 startDestination = Route.AppStartNavigation.route
             }
-            delay(300)
+            delay(400)
             splashCondition = false
         }.launchIn(viewModelScope)
     }

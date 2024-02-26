@@ -29,7 +29,7 @@ fun AiPlannerBottomNavigation(
     NavigationBar(
         modifier = Modifier
             .fillMaxWidth(),
-        containerColor = colorResource(id = R.color.system_color_white),
+        containerColor = colorResource(id = R.color.element_navigation_bar),
         tonalElevation = 10.dp
     ){
         items.forEachIndexed{ index, item ->
@@ -41,11 +41,11 @@ fun AiPlannerBottomNavigation(
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ){
                         Icon(
-                            modifier = Modifier.size(20.dp),
+                            modifier = Modifier.size(17.dp),
                             painter = painterResource(id = item.icon),
                             contentDescription = null
                         )
-                        Spacer(modifier = Modifier.height(10.dp))
+                        Spacer(modifier = Modifier.height(5.dp))
                         Text(text = item.text, style = MaterialTheme.typography.labelSmall)
                     }
                 },

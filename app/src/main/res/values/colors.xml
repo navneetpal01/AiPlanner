@@ -12,11 +12,14 @@
     <color name="system_color_white">#FFFFFF</color>
     <color name="system_color_black">#000000</color>
     <color name="system_color_blue">#3085fe</color>
+    <color name="system_background_blue">#f5f9ff</color>
     //Element Colors
     <color name="element_indicator_color">#e7e7e8</color>
     <color name="element_onboarding_text_first_color">#101317</color>
     <color name="element_onboarding_text_second_color">#acafb5</color>
     <color name="element_onboarding_button">#3085fe</color>
+    <color name="element_add_button">#599dfe</color>
+    <color name="element_navigation_bar">#eaf3ff</color>
 
     //Button Colors
     
