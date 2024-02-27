@@ -22,7 +22,6 @@ fun ThemeScreen() {
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .background(color = colorResource(id = R.color.system_color_white))
     ) {
         Column(
             modifier = Modifier

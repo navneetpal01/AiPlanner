@@ -37,24 +37,23 @@ fun HomeScreen() {
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .background(color = colorResource(id = R.color.system_background_blue))
     ) {
         val aiPlannerBottomSheet = rememberModalBottomSheetState()
         var isSheetOpen by rememberSaveable {
             mutableStateOf(false)
         }
         val density = LocalDensity.current
-        var offsetX by remember {
+        var offsetX by rememberSaveable {
             mutableStateOf(0f)
         }
-        var offsetY by remember {
+        var offsetY by rememberSaveable {
             mutableStateOf(0f)
         }
         FloatingActionButton(
             modifier = Modifier
                 .offset(
-                    x = (offsetX/density.density).dp,
-                    y = (offsetY/density.density).dp
+                    x = (offsetX / density.density).dp,
+                    y = (offsetY / density.density).dp
                 )
                 .size(85.dp)
                 .padding(end = 20.dp, bottom = 20.dp)

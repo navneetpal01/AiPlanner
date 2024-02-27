@@ -17,36 +17,45 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
+import com.example.aiplanner.ui.theme.ridley_grotesk_regular
 
 @Composable
 fun AiPlannerBottomNavigation(
-    items : List<BottomNavigationItem>,
-    selected : Int,
-    onItemClick : (Int) -> Unit
-){
+    items: List<BottomNavigationItem>,
+    selected: Int,
+    onItemClick: (Int) -> Unit
+) {
     NavigationBar(
         modifier = Modifier
             .fillMaxWidth(),
         containerColor = colorResource(id = R.color.element_navigation_bar),
         tonalElevation = 10.dp
-    ){
-        items.forEachIndexed{ index, item ->
+    ) {
+        items.forEachIndexed { index, item ->
             NavigationBarItem(
                 selected = index == selected,
                 onClick = { onItemClick(index) },
                 icon = {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
-                    ){
+                    ) {
                         Icon(
-                            modifier = Modifier.size(17.dp),
+                            modifier = Modifier.size(30.dp),
                             painter = painterResource(id = item.icon),
                             contentDescription = null
                         )
                         Spacer(modifier = Modifier.height(5.dp))
-                        Text(text = item.text, style = MaterialTheme.typography.labelSmall)
+                        Text(
+                            text = item.text,
+                            color = colorResource(id = R.color.system_color_black),
+                            fontFamily = ridley_grotesk_regular,
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 },
                 colors = NavigationBarItemDefaults.colors(
@@ -62,7 +71,7 @@ fun AiPlannerBottomNavigation(
 }
 
 data class BottomNavigationItem(
-    @DrawableRes val icon : Int,
-    val text : String
+    @DrawableRes val icon: Int,
+    val text: String
 )
 

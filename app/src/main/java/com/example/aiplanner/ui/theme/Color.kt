@@ -11,6 +11,7 @@ val Pink80 = Color(0xFFEFB8C8)
 //System Colors
 val System_Black = Color(0xFF000000)
 val System_White = Color(0xFFFFFFFF)
+val System_ScreenColor = Color(0xFFf6f6f6)
 
 
 //Element Colors

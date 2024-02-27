@@ -14,6 +14,10 @@ val ridley_grotesk_light = FontFamily(Font(R.font.ridley_grotesk_light))
 //Regular
 val ridley_grotesk_regular = FontFamily(Font(R.font.ridley_grotesk_regular))
 val ridley_grotesk_medium = FontFamily(Font(R.font.ridley_grotesk_medium))
+val ridley_grotesk_bold = FontFamily(Font(R.font.ridley_grotesk_bold))
+val ridley_grotesk_black = FontFamily(Font(R.font.ridley_grotesk_black))
+val ridley_grotesk_thin = FontFamily(Font(R.font.ridley_grotesk_thin))
+val ridley_grotesk_extraBold = FontFamily(Font(R.font.ridley_grotesk_extrabold))
 
 
 data class AiPlannerDimens(
