@@ -20,10 +20,11 @@
     <color name="element_onboarding_button">#3085fe</color>
     <color name="element_add_button">#599dfe</color>
     <color name="element_navigation_bar">#eaf3ff</color>
-    <color name="element_openai_background">#73a999</color>
+    <color name="element_openai_background">#10A37F</color>
     <color name="element_verified">#e3f4e1</color>
     <color name="element_unverified">#ffecef</color>
     <color name="element_settingIcon_tint">#B0B0B0</color>
+    <color name="element_divider">#E9E9E9</color>
 
 
     //Button Colors

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -21,31 +22,23 @@ import com.example.aiplanner.R
 
 
 @Composable
- fun OpenAiProfile(
+fun OpenAiProfile(
     modifier: Modifier = Modifier,
-    isVerified: Boolean
- ){
+) {
     Box(
         modifier = modifier
-            .size(70.dp)
-            .clip(CircleShape)
-            .background(color = if (isVerified) colorResource(id = R.color.element_verified) else colorResource(id = R.color.element_unverified)),
-        contentAlignment = Alignment.Center
-    ){
-        Box(
+            .size(60.dp)
+            .clip(RoundedCornerShape(CornerSize(15.dp)))
+            .background(color = colorResource(id = R.color.element_openai_background)),
+        contentAlignment = Alignment.Center,
+    ) {
+        Icon(
             modifier = Modifier
-                .size(60.dp)
-                .clip(CircleShape)
-                .background(color = colorResource(id = R.color.element_openai_background)),
-            contentAlignment = Alignment.Center,
-        ) {
-            Icon(
-                modifier = Modifier
-                    .size(40.dp),
-                painter = painterResource(id = R.drawable.openai),
-                contentDescription = null,
-                tint = colorResource(id = R.color.system_color_white)
-            )
-        }
+                .size(40.dp),
+            painter = painterResource(id = R.drawable.openai),
+            contentDescription = null,
+            tint = colorResource(id = R.color.system_color_white)
+        )
     }
+
 }
