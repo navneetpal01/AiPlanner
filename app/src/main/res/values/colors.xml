@@ -21,9 +21,11 @@
     <color name="element_add_button">#599dfe</color>
     <color name="element_navigation_bar">#eaf3ff</color>
     <color name="element_openai_background">#10A37F</color>
-    <color name="element_verified">#e3f4e1</color>
-    <color name="element_unverified">#ffecef</color>
-    <color name="element_settingIcon_tint">#B0B0B0</color>
+    <color name="element_verified">#19d661</color>
+    <color name="element_unverified">#da2d59</color>
+    <color name="element_Icon_arrow_tint">#B0B0B0</color>
+    <color name="element_icon_settings">#5C5C5C</color>
+    <color name="element_switch">#CDCDCD</color>
     <color name="element_divider">#E9E9E9</color>
 
 
