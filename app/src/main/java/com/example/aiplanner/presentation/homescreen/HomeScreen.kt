@@ -33,22 +33,22 @@ import com.example.aiplanner.presentation.bottomsheet.AiPlannerBottomSheet
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen() {
+    val aiPlannerBottomSheet = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    var isSheetOpen by rememberSaveable {
+        mutableStateOf(false)
+    }
+    val density = LocalDensity.current
+    var offsetX by rememberSaveable {
+        mutableStateOf(0f)
+    }
+    var offsetY by rememberSaveable {
+        mutableStateOf(0f)
+    }
     Box(
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
     ) {
-        val aiPlannerBottomSheet = rememberModalBottomSheetState()
-        var isSheetOpen by rememberSaveable {
-            mutableStateOf(false)
-        }
-        val density = LocalDensity.current
-        var offsetX by rememberSaveable {
-            mutableStateOf(0f)
-        }
-        var offsetY by rememberSaveable {
-            mutableStateOf(0f)
-        }
         FloatingActionButton(
             modifier = Modifier
                 .offset(

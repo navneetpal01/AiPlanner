@@ -15,7 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -26,22 +26,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
+import com.example.aiplanner.presentation.settings.components.AiPlannerSettings
 import com.example.aiplanner.presentation.settings.components.ApiStatus
 import com.example.aiplanner.presentation.settings.components.OpenAiProfile
-import com.example.aiplanner.presentation.settings.components.SwitchM3
 import com.example.aiplanner.ui.theme.ridley_grotesk_light
 import com.example.aiplanner.ui.theme.ridley_grotesk_medium
 import com.example.aiplanner.ui.theme.ridley_grotesk_regular
-import com.example.aiplanner.ui.theme.ridley_grotesk_semibold
 
 @Composable
 fun SettingScreen() {
@@ -145,89 +142,30 @@ fun SettingScreen() {
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.Top
             ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .align(Alignment.CenterStart),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ){
-                        Icon(
-                            modifier = Modifier
-                                .padding(horizontal = 10.dp)
-                                .size(30.dp),
-                            painter = painterResource(id = R.drawable.darkmode),
-                            contentDescription = null,
-                            tint = colorResource(id = R.color.element_icon_settings)
-                        )
-                        Text(
-                            modifier = Modifier
-                                .padding(horizontal = 5.dp),
-                            text = "Dark Mode",
-                            fontSize = 15.sp,
-                            fontFamily = ridley_grotesk_semibold,
-                            color = colorResource(id = R.color.element_icon_settings)
-                        )
+                AiPlannerSettings(
+                    isChecked = darkMode,
+                    displayText = "Dark Mode",
+                    displayIcon = painterResource(id = R.drawable.darkmode),
+                    onCheckChange = {
+                        darkMode = it
                     }
-                    SwitchM3(
-                        modifier = Modifier
-                            .padding(end = 10.dp)
-                            .align(Alignment.CenterEnd),
-                        isChecked = darkMode,
-                        onCheckChange = {
-                            darkMode = it
-                        }
-                    )
-                }
-                Divider(
+                )
+                HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
                     thickness = 2.dp,
                     color = colorResource(id = R.color.element_divider)
                 )
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .align(Alignment.CenterStart),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Icon(
-                            modifier = Modifier
-                                .padding(horizontal = 10.dp)
-                                .size(30.dp),
-                            painter = painterResource(id = R.drawable.notification),
-                            contentDescription = null,
-                            tint = colorResource(id = R.color.element_icon_settings)
-                        )
-                        Text(
-                            modifier = Modifier
-                                .padding(horizontal = 5.dp),
-                            text = "Notifications",
-                            fontSize = 15.sp,
-                            fontFamily = ridley_grotesk_semibold,
-                            color = colorResource(id = R.color.element_icon_settings)
-                        )
+                AiPlannerSettings(
+                    isChecked = notification,
+                    displayText = "Notification",
+                    displayIcon = painterResource(id = R.drawable.notification),
+                    onCheckChange = {
+                        notification = it
                     }
-                    SwitchM3(
-                        modifier = Modifier
-                            .padding(end = 10.dp)
-                            .align(Alignment.CenterEnd),
-                        isChecked = notification,
-                        onCheckChange = {
-                            notification = it
-                        }
-                    )
-                }
+                )
             }
         }
+
         //TODO
         Spacer(modifier = Modifier.height(15.dp))
         Surface(
@@ -250,7 +188,7 @@ fun SettingScreen() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                 }
-                Divider(
+                HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
                     thickness = 2.dp,
                     color = colorResource(id = R.color.element_divider)
@@ -263,7 +201,7 @@ fun SettingScreen() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                 }
-                Divider(
+                HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
                     thickness = 2.dp,
                     color = colorResource(id = R.color.element_divider)
@@ -276,7 +214,7 @@ fun SettingScreen() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                 }
-                Divider(
+                HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
                     thickness = 2.dp,
                     color = colorResource(id = R.color.element_divider)
@@ -289,7 +227,7 @@ fun SettingScreen() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                 }
-                Divider(
+                HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
                     thickness = 2.dp,
                     color = colorResource(id = R.color.element_divider)
@@ -302,7 +240,7 @@ fun SettingScreen() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                 }
-                Divider(
+                HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
                     thickness = 2.dp,
                     color = colorResource(id = R.color.element_divider)

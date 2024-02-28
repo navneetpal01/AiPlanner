@@ -30,7 +30,7 @@ import com.example.aiplanner.presentation.themescreen.ThemeScreen
 fun AiPlannerNavigator() {
     val bottomNavigationItems = remember {
         listOf(
-            BottomNavigationItem(icon = R.drawable.tasks, text = "Tasks"),
+            BottomNavigationItem(icon = R.drawable.tasks, text = "Schedule"),
             BottomNavigationItem(icon = R.drawable.themes, text = "Themes"),
             BottomNavigationItem(icon = R.drawable.calander, text = "Calendar"),
             BottomNavigationItem(icon = R.drawable.settings, text = "Setting")
