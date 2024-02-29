@@ -27,6 +27,7 @@
     <color name="element_icon_settings">#5C5C5C</color>
     <color name="element_switch">#CDCDCD</color>
     <color name="element_divider">#E9E9E9</color>
+    <color name="element_taskPage">#f2f3f8</color>
 
 
     //Button Colors
