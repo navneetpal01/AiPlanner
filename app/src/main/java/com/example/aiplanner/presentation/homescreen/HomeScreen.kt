@@ -72,24 +72,18 @@ fun HomeScreen() {
             }
             Box(
                 modifier = Modifier
-                    .background(color = colorResource(id = R.color.element_taskPage))
+                    .fillMaxHeight()
                     .fillMaxWidth()
+                    .background(color = colorResource(id = R.color.element_taskPage))
                     .verticalScroll(rememberScrollState())
             ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
-                    repeat(25) {
-                        Text(text = "Fuck the Bitches")
-                    }
+
                 }
-                Text(
-                    modifier = Modifier
-                        .background(Color.Blue)
-                        .width(200.dp),
-                    text = "Bharat"
-                )
+                //TODO Add Lists of Task
             }
         }
         FloatingActionButton(

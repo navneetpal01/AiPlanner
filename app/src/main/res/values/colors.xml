@@ -30,7 +30,15 @@
     <color name="element_taskPage">#f2f3f8</color>
 
 
-    //Button Colors
+    //Card Colors
+    <color name="card_color_1">#e1f6cd</color>
+    <color name="card_color_2">#fad8cf</color>
+    <color name="card_color_3">#e3d0fd</color>
+    <color name="card_color_4">#fce5b1</color>
+    <color name="card_color_5">#fdf8b4</color>
+    <color name="card_color_6">#c7e6eb</color>
+    <color name="card_color_7">#fddaba</color>
+    <color name="card_color_8">#cbd4f3</color>
     
     
 </resources>

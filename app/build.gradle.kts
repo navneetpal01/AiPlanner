@@ -92,4 +92,7 @@ dependencies {
     //ViewModel
     val lifecycle_version = "2.7.0"
     implementation("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version")
+
+    //Calendar
+    implementation("com.kizitonwose.calendar:compose:2.4.1")
 }
