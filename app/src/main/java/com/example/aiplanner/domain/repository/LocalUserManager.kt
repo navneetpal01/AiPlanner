@@ -1,4 +1,4 @@
-package com.example.aiplanner.domain.manager
+package com.example.aiplanner.domain.repository
 
 import kotlinx.coroutines.flow.Flow
 

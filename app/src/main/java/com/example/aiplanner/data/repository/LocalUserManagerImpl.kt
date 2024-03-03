@@ -1,4 +1,4 @@
-package com.example.aiplanner.data.manager
+package com.example.aiplanner.data.repository
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -6,7 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.aiplanner.domain.manager.LocalUserManager
+import com.example.aiplanner.domain.repository.LocalUserManager
 import com.example.aiplanner.utils.Constants
 import com.example.aiplanner.utils.Constants.USER_SETTINGS
 import kotlinx.coroutines.flow.Flow

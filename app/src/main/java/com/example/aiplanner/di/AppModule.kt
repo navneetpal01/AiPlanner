@@ -1,8 +1,8 @@
 package com.example.aiplanner.di
 
 import android.app.Application
-import com.example.aiplanner.data.manager.LocalUserManagerImpl
-import com.example.aiplanner.domain.manager.LocalUserManager
+import com.example.aiplanner.data.repository.LocalUserManagerImpl
+import com.example.aiplanner.domain.repository.LocalUserManager
 import com.example.aiplanner.domain.usecases.app_entry.AppEntryUseCases
 import com.example.aiplanner.domain.usecases.app_entry.ReadAppEntry
 import com.example.aiplanner.domain.usecases.app_entry.SaveAppEntry
