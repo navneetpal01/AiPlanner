@@ -63,28 +63,8 @@ fun HomeScreen() {
                 .fillMaxHeight()
                 .fillMaxWidth()
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(250.dp)
-            ) {
+           //TODO
 
-            }
-            Box(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .fillMaxWidth()
-                    .background(color = colorResource(id = R.color.element_taskPage))
-                    .verticalScroll(rememberScrollState())
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-
-                }
-                //TODO Add Lists of Task
-            }
         }
         FloatingActionButton(
             modifier = Modifier

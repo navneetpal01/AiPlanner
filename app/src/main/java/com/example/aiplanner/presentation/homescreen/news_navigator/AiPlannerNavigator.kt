@@ -1,5 +1,7 @@
 package com.example.aiplanner.presentation.homescreen.news_navigator
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -26,6 +28,7 @@ import com.example.aiplanner.presentation.nvgraph.Route
 import com.example.aiplanner.presentation.settings.SettingScreen
 import com.example.aiplanner.presentation.themescreen.ThemeScreen
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun AiPlannerNavigator() {
     val bottomNavigationItems = remember {
@@ -92,11 +95,10 @@ fun AiPlannerNavigator() {
             )
 
         }
-    ) {
-        val bottomPadding = it.calculateBottomPadding()
+    ) {padding->
         NavHost(
             modifier = Modifier
-                .padding(bottom = bottomPadding)
+                .padding(padding)
                 .background(color = colorResource(id = R.color.system_screens_background)),
             navController = navController,
             startDestination = Route.HomeScreen.route,
