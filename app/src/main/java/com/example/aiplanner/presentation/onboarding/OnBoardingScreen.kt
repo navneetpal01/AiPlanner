@@ -35,7 +35,7 @@ fun OnBoardingScreen(
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .background(color = colorResource(id = R.color.system_color_white))
+            .background(color = colorResource(id = R.color.system_screens_background))
     ) {
         val pagerState = rememberPagerState(initialPage = 0) {
             pages.size
@@ -60,7 +60,7 @@ fun OnBoardingScreen(
             PageIndicator(
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .padding(top = 60.dp, start = 20.dp),
+                    .padding(top = 40.dp, start = 20.dp),
                 pageSize = 3,
                 selectedPage = pagerState.currentPage
             )

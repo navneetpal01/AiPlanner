@@ -65,7 +65,6 @@ fun AiPlannerNavigator() {
      */
     Scaffold(
         modifier = Modifier
-            .statusBarsPadding()
             .fillMaxSize(),
         bottomBar = {
             AiPlannerBottomNavigation(

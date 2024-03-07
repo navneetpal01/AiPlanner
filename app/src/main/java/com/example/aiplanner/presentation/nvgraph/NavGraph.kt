@@ -1,5 +1,7 @@
 package com.example.aiplanner.presentation.nvgraph
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,6 +15,7 @@ import com.example.aiplanner.presentation.homescreen.news_navigator.AiPlannerNav
 import com.example.aiplanner.presentation.onboarding.OnBoardingScreen
 import com.example.aiplanner.presentation.onboarding.OnBoardingViewModel
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun NavGraph(
     startDestination : String
