@@ -130,13 +130,13 @@ private fun Day(
     ){
         val textColor = when(day.position){
             DayPosition.InDate -> {
-                colorResource(id = R.color.element_unAvailableDaysOfTheMonth)
+                Color.Blue
             }
             DayPosition.MonthDate -> {
                 colorResource(id = R.color.element_onboarding_text_first_color)
             }
             DayPosition.OutDate -> {
-                colorResource(id = R.color.element_unAvailableDaysOfTheMonth)
+                Color.Blue
             }
         }
         Text(
@@ -146,6 +146,7 @@ private fun Day(
             text = day.date.dayOfMonth.toString(),
             color = textColor,
             fontSize = 12.sp,
+            fontWeight = FontWeight.SemiBold
         )
 
     }

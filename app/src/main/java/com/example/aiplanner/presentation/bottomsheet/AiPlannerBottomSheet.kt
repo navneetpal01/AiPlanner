@@ -41,7 +41,7 @@ fun AiPlannerBottomSheet(
     val tabItems = listOf<TabItems>(
         TabItems(
             tabName = "Profile",
-            icon = painterResource(id = R.drawable.work)
+            icon = painterResource(id = R.drawable.themeslight)
         ),
         TabItems(
             tabName = "Today's Tasks",

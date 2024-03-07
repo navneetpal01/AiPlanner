@@ -32,8 +32,9 @@ fun AiPlannerBottomNavigation(
     NavigationBar(
         modifier = Modifier
             .fillMaxWidth(),
-        containerColor = colorResource(id = R.color.element_navigation_bar),
+        containerColor = colorResource(id = R.color.system_color_white),
         tonalElevation = 10.dp
+
     ) {
         items.forEachIndexed { index, item ->
             NavigationBarItem(
@@ -45,13 +46,13 @@ fun AiPlannerBottomNavigation(
                     ) {
                         Icon(
                             modifier = Modifier.size(30.dp),
-                            painter = painterResource(id = item.icon),
+                            painter = painterResource(if (index == selected) item.selectedIcon else item.unSelectedIcon),
                             contentDescription = null
                         )
                         Spacer(modifier = Modifier.height(5.dp))
                         Text(
                             text = item.text,
-                            color = colorResource(id = R.color.system_color_black),
+                            color = if (index == selected ) colorResource(id = R.color.system_color_blue) else colorResource(id = R.color.system_color_black),
                             fontFamily = ridley_grotesk_regular,
                             fontSize = 10.sp,
                             fontWeight = FontWeight.Bold
@@ -63,7 +64,6 @@ fun AiPlannerBottomNavigation(
                     selectedTextColor = colorResource(id = R.color.system_color_blue),
                     unselectedIconColor = colorResource(id = R.color.system_color_black),
                     unselectedTextColor = colorResource(id = R.color.system_color_black),
-                    indicatorColor = colorResource(id = R.color.system_color_white)
                 )
             )
         }
@@ -71,7 +71,8 @@ fun AiPlannerBottomNavigation(
 }
 
 data class BottomNavigationItem(
-    @DrawableRes val icon: Int,
+    @DrawableRes val selectedIcon: Int,
+    @DrawableRes val unSelectedIcon : Int,
     val text: String
 )
 
