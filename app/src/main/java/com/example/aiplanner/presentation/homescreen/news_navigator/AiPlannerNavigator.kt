@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -64,6 +65,7 @@ fun AiPlannerNavigator() {
      */
     Scaffold(
         modifier = Modifier
+            .statusBarsPadding()
             .fillMaxSize(),
         bottomBar = {
             AiPlannerBottomNavigation(
@@ -95,10 +97,11 @@ fun AiPlannerNavigator() {
             )
 
         }
-    ) {padding->
+    ) {
+        val bottomPadding = it.calculateBottomPadding()
         NavHost(
             modifier = Modifier
-                .padding(padding)
+                .padding(bottom = bottomPadding)
                 .background(color = colorResource(id = R.color.system_screens_background)),
             navController = navController,
             startDestination = Route.HomeScreen.route,

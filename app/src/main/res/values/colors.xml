@@ -29,6 +29,9 @@
     <color name="element_divider">#E9E9E9</color>
     <color name="element_taskPage">#f2f3f8</color>
 
+    //Calendar
+    <color name="element_unAvailableDaysOfTheMonth">#a2a3a8</color>
+
 
     //Card Colors
     <color name="card_color_1">#e1f6cd</color>

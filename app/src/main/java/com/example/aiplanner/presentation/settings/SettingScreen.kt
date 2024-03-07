@@ -10,13 +10,11 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,16 +27,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
 import com.example.aiplanner.presentation.settings.components.AiPlannerSettings
-import com.example.aiplanner.presentation.settings.components.ApiStatus
-import com.example.aiplanner.presentation.settings.components.OpenAiProfile
-import com.example.aiplanner.ui.theme.ridley_grotesk_light
 import com.example.aiplanner.ui.theme.ridley_grotesk_medium
-import com.example.aiplanner.ui.theme.ridley_grotesk_regular
 
 @Composable
 fun SettingScreen() {
@@ -79,55 +72,8 @@ fun SettingScreen() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .clickable { }
-                    .clip(RoundedCornerShape(CornerSize(15.dp))),
-                contentAlignment = Alignment.Center
-            ) {
-                OpenAiProfile(
-                    modifier = Modifier
-                        .align(Alignment.CenterStart)
-                        .padding(top = 10.dp, bottom = 10.dp, start = 10.dp, end = 10.dp)
-                )
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.Center),
-                    horizontalAlignment = Alignment.Start,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        text = "Chat Gpt Key",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp,
-                        color = colorResource(id = R.color.element_onboarding_text_first_color),
-                        fontFamily = ridley_grotesk_regular
-                    )
-                    Row(
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = "Status",
-                            fontSize = 12.sp,
-                            color = colorResource(id = R.color.element_onboarding_text_first_color),
-                            fontWeight = FontWeight.Bold,
-                            fontFamily = ridley_grotesk_light
-                        )
-                        ApiStatus(
-                            modifier = Modifier
-                                .padding(start = 5.dp),
-                            isVerified = false
-                        )
-                    }
-                }
-                Icon(
-                    modifier = Modifier
-                        .align(Alignment.CenterEnd)
-                        .size(40.dp)
-                        .padding(end = 10.dp),
-                    painter = painterResource(id = R.drawable.arrow_right),
-                    contentDescription = null,
-                    tint = colorResource(id = R.color.element_Icon_arrow_tint)
-                )
-            }
+                    .clip(RoundedCornerShape(CornerSize(15.dp)))
+            )
         }
         Spacer(modifier = Modifier.height(35.dp))
         Surface(
