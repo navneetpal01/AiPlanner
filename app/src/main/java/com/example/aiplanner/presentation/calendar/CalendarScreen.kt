@@ -46,7 +46,7 @@ import java.time.YearMonth
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun CalendarScreen() {
-    val today = LocalDate.now()
+    val today = LocalDate.now().toString()
     val currentMonth = remember { YearMonth.now() }
     val startMonth = remember { currentMonth.minusMonths(500) }
     val endMonth = remember { currentMonth.plusMonths(500) }
