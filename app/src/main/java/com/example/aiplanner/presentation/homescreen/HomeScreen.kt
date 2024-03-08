@@ -1,106 +1,106 @@
 package com.example.aiplanner.presentation.homescreen
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.pointer.consumeAllChanges
-import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
-import com.example.aiplanner.presentation.bottomsheet.AiPlannerBottomSheet
+import com.example.aiplanner.ui.theme.ridley_grotesk_regular
+import com.example.aiplanner.utils.monthAndYearHeader
 
-@OptIn(ExperimentalMaterial3Api::class)
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun HomeScreen() {
-    val aiPlannerBottomSheet = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-    var isSheetOpen by rememberSaveable {
-        mutableStateOf(false)
+fun HomeScreen(
+    statusBarPadding: Dp,
+    onSideBarIconClick: () -> Unit
+) {
+    val monthYear = remember {
+        monthAndYearHeader()
     }
-    val density = LocalDensity.current
-    var offsetX by rememberSaveable {
-        mutableStateOf(0f)
-    }
-    var offsetY by rememberSaveable {
-        mutableStateOf(0f)
-    }
-    Box(
+    Column(
         modifier = Modifier
+            .fillMaxHeight()
             .fillMaxWidth()
-            .fillMaxWidth()
+            .background(color = colorResource(id = R.color.element_home_topBar)),
     ) {
-        Column(
+        AdvancedTopHomeScreen(
             modifier = Modifier
-                .fillMaxHeight()
-                .fillMaxWidth()
-        ) {
-           //TODO
-
-        }
-        FloatingActionButton(
-            modifier = Modifier
-                .offset(
-                    x = (offsetX / density.density).dp,
-                    y = (offsetY / density.density).dp
-                )
-                .align(Alignment.BottomEnd)
-                .size(85.dp)
-                .padding(end = 20.dp, bottom = 20.dp)
-                .pointerInput(Unit) {
-                    detectDragGestures { change, dragAmount ->
-                        change.consumeAllChanges()
-                        offsetX += dragAmount.x
-                        offsetY += dragAmount.y
-                    }
-                },
-            onClick = {
-                isSheetOpen = true
+                .padding(top = statusBarPadding),
+            onSideBarIconClick = {
+                onSideBarIconClick()
             },
-            shape = CircleShape,
-            containerColor = colorResource(id = R.color.element_add_button)
+            monthYear = monthYear
+        )
+
+    }
+}
+
+
+@Composable
+private fun AdvancedTopHomeScreen(
+    modifier: Modifier = Modifier,
+    onSideBarIconClick: () -> Unit,
+    monthYear: String
+) {
+    Row(
+        modifier = modifier
+            .wrapContentHeight()
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Row(
+            modifier = Modifier
+                .wrapContentHeight()
+                .wrapContentWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                painter = painterResource(id = R.drawable.add),
-                contentDescription = null,
-                tint = colorResource(id = R.color.system_color_white)
+                modifier = Modifier
+                    .size(50.dp)
+                    .padding(all = 10.dp)
+                    .clickable {
+                        onSideBarIconClick()
+                    },
+                painter = painterResource(id = R.drawable.sidebar),
+                contentDescription = "Side Menu",
+                tint = colorResource(id = R.color.element_home_topBarIcon)
             )
-        }
-        if (isSheetOpen) {
-            AiPlannerBottomSheet(
-                aiPlannerSheetState = aiPlannerBottomSheet,
-                onDismissed = {
-                    isSheetOpen = false
-                }
+            Text(
+                text = monthYear,
+                fontFamily = ridley_grotesk_regular,
+                fontWeight = FontWeight.Bold,
+                fontSize = 25.sp,
+                color = colorResource(id = R.color.element_home_topBarIcon)
             )
         }
     }
 }
+

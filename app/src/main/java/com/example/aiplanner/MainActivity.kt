@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
                 val isSystemInDarkMode = isSystemInDarkTheme()
                 SideEffect {
                     systemUiController.setStatusBarColor(
-                        color = System_ScreenColor
+                        color = Color.Transparent
                     )
                     systemUiController.setNavigationBarColor(
                         color = Color.Black
@@ -53,7 +53,6 @@ class MainActivity : ComponentActivity() {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .statusBarsPadding()
                         .navigationBarsPadding()
                         .background(color = MaterialTheme.colorScheme.onSurface),
                 ){

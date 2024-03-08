@@ -28,9 +28,14 @@
     <color name="element_switch">#CDCDCD</color>
     <color name="element_divider">#E9E9E9</color>
     <color name="element_taskPage">#f2f3f8</color>
-
+    //HomeScreen
+    <color name="element_home_topBar">#d0efef</color>
+    <color name="element_home_topBarIcon">#050608</color>
+    //Floating Action Button
+    <color name="element_floatingActionButton">#040808</color>
     //Calendar
     <color name="element_unAvailableDaysOfTheMonth">#a2a3a8</color>
+
 
 
     //Card Colors

@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Text
@@ -26,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
@@ -45,7 +45,9 @@ import java.time.YearMonth
 @RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
-fun CalendarScreen() {
+fun CalendarScreen(
+    statusBarPadding : Dp
+) {
     val today = LocalDate.now().toString()
     val currentMonth = remember { YearMonth.now() }
     val startMonth = remember { currentMonth.minusMonths(500) }
@@ -55,6 +57,7 @@ fun CalendarScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(top = statusBarPadding)
             .background(color = colorResource(id = R.color.system_screens_background))
     ) {
         val state = rememberCalendarState(

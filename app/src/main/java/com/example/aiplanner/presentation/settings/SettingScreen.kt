@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aiplanner.R
@@ -34,7 +35,9 @@ import com.example.aiplanner.presentation.settings.components.AiPlannerSettings
 import com.example.aiplanner.ui.theme.ridley_grotesk_medium
 
 @Composable
-fun SettingScreen() {
+fun SettingScreen(
+    statusBarPadding : Dp
+) {
     var darkMode by remember { mutableStateOf(false) }
     var notification by remember { mutableStateOf(true) }
     Column(
