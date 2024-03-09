@@ -9,9 +9,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -46,7 +50,7 @@ import java.time.YearMonth
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun CalendarScreen(
-    statusBarPadding : Dp
+    statusBarPadding: Dp
 ) {
     val today = LocalDate.now().toString()
     val currentMonth = remember { YearMonth.now() }
@@ -57,8 +61,7 @@ fun CalendarScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = statusBarPadding)
-            .background(color = colorResource(id = R.color.system_screens_background))
+            .background(color = colorResource(id = R.color.element_calendarBlackColor))
     ) {
         val state = rememberCalendarState(
             startMonth = startMonth,
@@ -75,7 +78,8 @@ fun CalendarScreen(
         }
         SimpleCalendarTitle(
             modifier = Modifier
-                .background(color = colorResource(id = R.color.system_screens_background))
+                .padding(top = statusBarPadding)
+                .background(color = colorResource(id = R.color.element_calendarBlackColor))
                 .padding(horizontal = 8.dp, vertical = 12.dp),
             currentMonth = visibleMonth.yearMonth,
             goToPrevious = {
@@ -93,16 +97,32 @@ fun CalendarScreen(
             modifier = Modifier
                 .wrapContentWidth(),
             state = state,
-            dayContent = { day->
+            dayContent = { day ->
                 Day(
                     day = day,
                     isSelected = selection == day,
-                    onClick = {clicked ->
+                    onClick = { clicked ->
                         selection = clicked
                     }
                 )
             }
         )
+        Column(
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .background(
+                    color = colorResource(id = R.color.element_calendarBottom),
+                    shape = RoundedCornerShape(
+                        topStart = CornerSize(20.dp),
+                        topEnd = CornerSize(20.dp),
+                        bottomStart = CornerSize(0.dp),
+                        bottomEnd = CornerSize(0.dp)
+                    )
+                )
+        ) {
+
+        }
 
     }
 
@@ -111,10 +131,10 @@ fun CalendarScreen(
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 private fun Day(
-    day : CalendarDay,
-    isSelected : Boolean = false,
-    onClick : (CalendarDay) -> Unit
-){
+    day: CalendarDay,
+    isSelected: Boolean = false,
+    onClick: (CalendarDay) -> Unit
+) {
     Box(
         modifier = Modifier
             .aspectRatio(1f)
@@ -123,23 +143,25 @@ private fun Day(
                 color = if (isSelected) colorResource(id = R.color.system_color_blue) else Color.Transparent
             )
             .padding(1.dp)
-            .background(color = colorResource(id = R.color.system_screens_background))
+            .background(color = colorResource(id = R.color.element_calendarBlackColor))
             .clickable(
                 enabled = day.position == DayPosition.MonthDate,
                 onClick = {
                     onClick(day)
                 }
             )
-    ){
-        val textColor = when(day.position){
+    ) {
+        val textColor = when (day.position) {
             DayPosition.InDate -> {
-                Color.Blue
+                colorResource(id = R.color.element_unAvailableDaysOfTheMonth)
             }
+
             DayPosition.MonthDate -> {
-                colorResource(id = R.color.element_onboarding_text_first_color)
+                colorResource(id = R.color.system_color_white)
             }
+
             DayPosition.OutDate -> {
-                Color.Blue
+                colorResource(id = R.color.element_unAvailableDaysOfTheMonth)
             }
         }
         Text(
@@ -153,19 +175,6 @@ private fun Day(
         )
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

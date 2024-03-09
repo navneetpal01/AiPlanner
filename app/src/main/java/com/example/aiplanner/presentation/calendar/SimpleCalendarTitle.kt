@@ -2,6 +2,7 @@ package com.example.aiplanner.presentation.calendar
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -19,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
@@ -38,8 +40,11 @@ fun SimpleCalendarTitle(
     goToNext: () -> Unit,
 ) {
     Row(
-        modifier = modifier.height(40.dp),
+        modifier = modifier
+            .height(40.dp)
+            .background(color = colorResource(id = R.color.element_calendarBlackColor)),
         verticalAlignment = Alignment.CenterVertically,
+
     ) {
         CalendarNavigationIcon(
             icon = painterResource(id = R.drawable.ic_chevron_left),
@@ -51,6 +56,7 @@ fun SimpleCalendarTitle(
                 .weight(1f)
                 .testTag("MonthTitle"),
             text = currentMonth.displayText(),
+            color = colorResource(id = R.color.system_color_white),
             fontSize = 22.sp,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Medium,
@@ -82,5 +88,6 @@ private fun CalendarNavigationIcon(
             .align(Alignment.Center),
         painter = icon,
         contentDescription = contentDescription,
+        tint = colorResource(id = R.color.system_color_white)
     )
 }
